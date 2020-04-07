@@ -1,7 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Java template
 # Compiled class file
-gateway/target/classes/com/michael/gateway/authorize/controller/AdminController.class
 
 # Log file
 *.log
