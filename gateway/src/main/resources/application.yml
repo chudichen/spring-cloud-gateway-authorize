@@ -1,0 +1,50 @@
+# server
+server:
+  port: 9000
+spring:
+  application:
+    name: spring-cloud-gateway-authorize
+  datasource:
+    url: jdbc:mysql://hadoop000:3306/authorize?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+# eureka
+eureka:
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+# eureka.client.service-url.defaultZone=""
+# hystrix timeout
+hystrix:
+  metrics:
+    enabled: true
+    hystrix:
+      metrics:
+        polling-interval-ms: 2000
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+# JWT config
+oauth:
+  password:
+    encoder:
+      secret: mysecret
+      iteration: 33
+      keylength: 256
+  jwt:
+    secret: ThisIsSecretForJWTHS512SignatureAlgorithmThatMUSTHave512bitsKeySize
+    expiration:
+      access: 28800
+      refresh: 288000
+
+# authorize config
+authorize:
+  enable: false
+  # enable permission
+  permission:
+    enable: true
