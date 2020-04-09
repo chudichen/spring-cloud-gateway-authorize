@@ -17,8 +17,10 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 @Configuration
 public class WebfluxRoutesConfig {
+
     private static final String CLIENT_PATH = "/api/client";
     private static final String ADMIN_PATH = "/api/admin";
+    private static final String API_PREFIX = "/api";
 
 
     /**
@@ -33,7 +35,11 @@ public class WebfluxRoutesConfig {
     public RouteLocator authorizationLocator(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route(r -> r.path(CLIENT_PATH + "/**")
-                        .filters( f -> f.stripPrefix(2))
+                        .filters(f -> {
+                            f.stripPrefix(2);
+                            f.prefixPath(API_PREFIX);
+                            return f;
+                        })
                         .uri("lb://SPRING-CLOUD-GATEWAY-SERVICE")
                         .order(2)
                         .id("client-route")
@@ -46,6 +52,7 @@ public class WebfluxRoutesConfig {
                 .route(r -> r.path(ADMIN_PATH + "/**")
                         .filters( f -> {
                             f.stripPrefix(2);
+                            f.prefixPath(API_PREFIX);
                             return f;
                         })
                         .uri("lb://SPRING-CLOUD-GATEWAY-SERVICE")
