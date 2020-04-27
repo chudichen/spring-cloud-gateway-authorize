@@ -34,13 +34,15 @@ import java.util.stream.Collectors;
  * @author Michael.Chu
  * @date 2020/03/31
  */
-@RestController
 @Slf4j
+@RestController
 public class AuthenticationController {
+
     private final JWTUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
     private final ReactAdminDetailsServiceImpl userRepository;
     private final RedisTemplate<String, UserPermissionDTO> permissionDomainRedisTemplate;
+    // 设置超时时间默认288000
     @Value("${oauth.jwt.expiration.refresh:288000}")
     private Long expirationRefreshTime;
 

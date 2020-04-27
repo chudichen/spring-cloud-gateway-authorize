@@ -4,6 +4,8 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * MyBatis 扫面配置类
+ *
  * @author Michael Chu
  * @since 2020-04-02 14:50
  */
