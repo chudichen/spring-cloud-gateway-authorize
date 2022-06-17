@@ -23,7 +23,7 @@
         <jwt.version>0.10.5</jwt.version>
         <common.pool2.version>2.6.2</common.pool2.version>
         <junit.test.version>4.12</junit.test.version>
-        <fast.json.version>1.2.60</fast.json.version>
+        <fast.json.version>1.2.83</fast.json.version>
         <mysql.version>8.0.19</mysql.version>
     </properties>
     <dependencies>
