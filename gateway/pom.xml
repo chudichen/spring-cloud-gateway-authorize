@@ -24,7 +24,7 @@
         <common.pool2.version>2.6.2</common.pool2.version>
         <junit.test.version>4.12</junit.test.version>
         <fast.json.version>1.2.60</fast.json.version>
-        <mysql.version>8.0.19</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
     </properties>
     <dependencies>
         <!-- 数据库 -->
